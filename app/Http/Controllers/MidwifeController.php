@@ -7,79 +7,51 @@ use Illuminate\Http\Request;
 
 class MidwifeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    
+    //variable declaration
+    protected $midwifeModel;
+
+
+    //constructor
+    public function __construct()
     {
-        //
+        $this->midwifeModel = new Midwife();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    //get midwives
+    public function getMidwives()
     {
-        //
+        return $this->midwifeModel->getMidwives();
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+
+    //get a single midwife by Id
+    public function getMidwife($midwifeId)
     {
-        //
+        return $this->midwifeModel->getMidwife($midwifeId);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Midwife  $midwife
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Midwife $midwife)
+
+    //post midwife to db
+    public function postMidwife(Request $request)
     {
-        //
+        return $this->midwifeModel->postMidwife($request);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Midwife  $midwife
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Midwife $midwife)
+
+
+    //Edit an midwife
+    public function putMidwife(Request $request, $midwifeId)
     {
-        //
+        return $this->midwifeModel->putMidwife($request, $midwifeId);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Midwife  $midwife
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Midwife $midwife)
-    {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Midwife  $midwife
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Midwife $midwife)
+    //delete an midwife
+    public function deleteMidwife($midwifeId)
     {
-        //
+        return $this->midwifeModel->deleteMidwife(
+            $midwifeId
+        );
     }
 }

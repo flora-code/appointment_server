@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAppointmentsTable extends Migration
+class CreateLocationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,14 @@ class CreateAppointmentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('appointments', function (Blueprint $table) {
+        Schema::create('locations', function (Blueprint $table) {
             $table->id();
-            $table->boolean('booking_status');
-            $table->double('price');
+            
             $table->string('location');
             $table->double('longitude');
             $table->double('latitude');
-            $table->date('date');
-            $table->time('time');
-            $table->integer('midwife_id');
+            $table->integer('user_id');
+
             $table->softDeletes();
             $table->timestamps();
         });
@@ -35,6 +33,6 @@ class CreateAppointmentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('appointments');
+        Schema::dropIfExists('locations');
     }
 }

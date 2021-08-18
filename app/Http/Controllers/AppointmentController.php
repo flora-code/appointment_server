@@ -7,79 +7,51 @@ use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+
+    //variable declaration
+    protected $appointmentModel;
+
+
+    //constructor
+    public function __construct()
     {
-        //
+        $this->appointmentModel = new Appointment();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    //get appointments
+    public function getAppointments()
     {
-        //
+        return $this->appointmentModel->getAppointments();
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+
+    //get a single appointment by Id
+    public function getAppointment($appointmentId)
     {
-        //
+        return $this->appointmentModel->getAppointment($appointmentId);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Appointment  $appointment
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Appointment $appointment)
+
+    //post appointment to db
+    public function postAppointment(Request $request)
     {
-        //
+        return $this->appointmentModel->postAppointment($request);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Appointment  $appointment
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Appointment $appointment)
+
+
+    //Edit an appointment
+    public function putAppointment(Request $request, $appointmentId)
     {
-        //
+        return $this->appointmentModel->putAppointment($request, $appointmentId);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Appointment  $appointment
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Appointment $appointment)
-    {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Appointment  $appointment
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Appointment $appointment)
+    //delete an appointment
+    public function deleteAppointment($appointmentId)
     {
-        //
+        return $this->appointmentModel->deleteAppointment(
+            $appointmentId
+        );
     }
 }
