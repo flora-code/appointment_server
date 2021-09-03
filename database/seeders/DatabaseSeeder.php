@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Appointment;
+use App\Models\Event;
 use App\Models\Midwife;
 use App\Models\Mother;
 use App\Models\Payment;
@@ -19,11 +20,12 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-        Appointment::factory(100)->create();
-        Midwife::factory(10)->create();
-        Mother::factory(10)->create(); 
-        Payment::factory(50)->create();
-        User::factory(20)->create();
+        // Appointment::factory(100)->create();
+        // Midwife::factory(10)->create();
+        // Mother::factory(10)->create(); 
+        // Payment::factory(50)->create();
+        // User::factory(20)->create();
+        Event::factory(10)->create();
 
     }
 }

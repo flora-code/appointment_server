@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\EventController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -42,3 +43,6 @@ Route::post('midwife',[MidwifeController::class,'postMidwife']);
 Route::get('midwife/{midwifeId}',[MidwifeController::class,'getMidwife']);
 Route::put('midwife/{midwifeId}',[MidwifeController::class,'putMidwife']);
 Route::delete('midwife/{midwifeId}',[MidwifeController::class,'deleteMidwife']);
+
+
+Route::get('events',[EventController::class, 'getEvents']);
